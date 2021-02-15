@@ -7,7 +7,7 @@ import ShoppingCart from "./ShoppingCart";
 
  const Buscador =(props)=>{
     const searchRef = React.createRef();
-    debugger
+
     const handleSubmitSearch =(e)=>{
          e.preventDefault();
          const termino = searchRef.current.value;
