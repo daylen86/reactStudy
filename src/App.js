@@ -20,6 +20,7 @@ const AppFunctional = (props) =>{
   }
 
   const dataSearch = (termino) => {
+    restoreTodo();
     const filtrados = todos.filter((todo) =>
         todo.title.trim().toLowerCase().includes(termino.toLowerCase().trim())
     );
