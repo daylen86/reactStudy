@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import { todos as initialState } from './todos.json';
@@ -10,6 +10,9 @@ import ProductList from './components/ProductList';
 const AppFunctional = (props) =>{
     const [cart, setCart] = useState([]);
     const [todos, setTodos] = useState([...initialState]);
+
+    const [isFiltered, setIsFiltered] = useState(false);
+    const [todosFiltered, SetTodosFiltered] = useState([]);
 
   const addTodoForm = (todo) => {
     setTodos([...todos, todo])
@@ -23,11 +26,13 @@ const AppFunctional = (props) =>{
     const filtrados = todos.filter((todo) =>
         todo.title.trim().toLowerCase().includes(termino.toLowerCase().trim())
     );
-    setTodos(filtrados);
+    SetTodosFiltered(filtrados);
+    setIsFiltered(true);
   };
 
   const restoreTodo = () => {
-    setTodos([...initialState]);
+    setIsFiltered(false);
+    SetTodosFiltered([]);
   };
 
 
@@ -50,7 +55,7 @@ const AppFunctional = (props) =>{
               </div>
               <div className="col-md-9">
                 <div className="row">
-                  <ProductList listProducts={todos} addToCart={addToCart}/>
+                  <ProductList listProducts={isFiltered ? todosFiltered : todos} addToCart={addToCart}/>
                 </div>
               </div>
             </div>
