@@ -10,8 +10,6 @@ import ShoppingCart from './components/ShoppingCart';
 import ProductList from './components/ProductList';
 
 const initialState = todos;
-const cart = [];
-
 
 // New Component Funcional
 const AppFunctional = (props) =>{
