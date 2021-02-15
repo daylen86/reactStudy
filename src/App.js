@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import { todos as initialState } from './todos.json';
