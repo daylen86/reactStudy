@@ -1,30 +1,9 @@
-<<<<<<< HEAD
-import React, {useState, Component} from "react";
-
-
-const productList = (props)=>{
-  const [cart, setCartState] = useState(0);
-   const addShopCart = (index) => {
-        const item = props.listProducts.find((todo, i) => i === index);
-        cart.push(item);
-        setCartState({
-            cart
-        })
-=======
 import React, {useState} from "react";
 
-const carts = [];
 const productList = (props)=>{
-  /* const [cart, setCartState] = useState(0);*/
-   const addShopCart = (index) => {
+    const addShopCart = (index) => {
         const item = props.listProducts.find((todo, i) => i === index);
-        carts.push(item);
-      props.setState({
-          carts
-      })
-
-
->>>>>>> f301fe27aa27860cbd1ec492890fe6bb4d0edfb8
+        props.addToCart(item);
     };
 
     return (
@@ -46,11 +25,7 @@ const productList = (props)=>{
                                 {/*<button className="bg-danger" onClick={this.deleteTask.bind(this, i)}>
                 Delete
               </button>*/}
-<<<<<<< HEAD
-                                <button onClick={addShopCart.bind(this,i)} className="bg-success btn-sm">
-=======
-                                <button onClick={addShopCart} className="bg-success btn-sm">
->>>>>>> f301fe27aa27860cbd1ec492890fe6bb4d0edfb8
+                                <button onClick={()=> addShopCart(i)} className="bg-success btn-sm">
                                     Pagar
                                 </button>
                                 <button className="bg-success btn-sm">Carro compra</button>
