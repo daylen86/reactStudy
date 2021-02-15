@@ -2,6 +2,7 @@ import React, {useState, Component} from 'react';
 import ProductList from './ProductList';
 
 
+
 const listCar = (props) => {
   let cantidad = 0;
    const cantidadTotal =()=>{
