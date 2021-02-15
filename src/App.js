@@ -7,10 +7,10 @@ import TodoForm from './components/TodoForm.js';
 import Buscador from './components/Buscador';
 import classes from './components/Buscador.Module.css';
 import ShoppingCart from './components/ShoppingCart';
+import ProductList from './components/ProductList';
 
 const initialState = todos;
 const cart = [];
-const total = 0;
 
 class App extends Component {
   constructor() {
@@ -62,47 +62,18 @@ class App extends Component {
       todos: initialState,
     });
   };
-  addShopCart = (index) => {
+ /* addShopCart = (index) => {
     const item = this.state.todos.find((todo, i) => i === index);
     cart.push(item);
     this.setState({
       cart
     });
-
-
-  };
-
+  };*/
 
   render() {
-    const todos = this.state.todos.map((todo, i) => {
-      return (
-        <div className="col-md-4 mt-3" key={i}>
-          <div className="card">
-            <div className="card-header">
-              <h1>{todo.title}</h1>
-            </div>
-            <div className="card-body">
-              <h5>
-                Precio: <span className="text-black-50">{todo.price}</span>
-              </h5>
-              <p>{todo.description}</p>
-            </div>
-            <div className="card-footer">
-              {/*<button className="bg-danger" onClick={this.deleteTask.bind(this, i)}>
-                Delete
-              </button>*/}
-              <hr />
-              <button onClick={this.addShopCart.bind(this, i)} className="bg-success btn-sm">
-                Pagar
-              </button>
-              <button className="bg-success btn-sm">Carro compra</button>
-            </div>
-          </div>
-        </div>
-      );
-    });
     return (
       <div className="App">
+
         <Navigation total={todos.length} />
         <div className="container mt-3 p-0">
           <div className="jumbotron bg-light p-4">
@@ -119,7 +90,9 @@ class App extends Component {
               <TodoForm onAddTodo={this.addTodoForm} />
             </div>
             <div className="col-md-9">
-              <div className="row">{todos}</div>
+              <div className="row">
+                <ProductList listProducts={this.state.todos}/>
+              </div>
             </div>
           </div>
           <div className="row pt-5">
@@ -133,6 +106,7 @@ class App extends Component {
           </div>
         </div>
       </div>
+
     );
   }
 }
