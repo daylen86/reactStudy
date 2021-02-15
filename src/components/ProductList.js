@@ -1,16 +1,9 @@
 import React, {useState} from "react";
 
-const carts = [];
 const productList = (props)=>{
-  /* const [cart, setCartState] = useState(0);*/
    const addShopCart = (index) => {
         const item = props.listProducts.find((todo, i) => i === index);
-        carts.push(item);
-      props.setState({
-          carts
-      })
-
-
+        props.addToCart(item);
     };
 
     return (
@@ -32,7 +25,7 @@ const productList = (props)=>{
                                 {/*<button className="bg-danger" onClick={this.deleteTask.bind(this, i)}>
                 Delete
               </button>*/}
-                                <button onClick={addShopCart} className="bg-success btn-sm">
+                                <button onClick={()=> addShopCart(i)} className="bg-success btn-sm">
                                     Pagar
                                 </button>
                                 <button className="bg-success btn-sm">Carro compra</button>
