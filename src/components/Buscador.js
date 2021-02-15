@@ -7,6 +7,7 @@ import ShoppingCart from "./ShoppingCart";
 
  const Buscador =(props)=>{
     const searchRef = React.createRef();
+    debugger
     const handleSubmitSearch =(e)=>{
          e.preventDefault();
          const termino = searchRef.current.value;
@@ -17,7 +18,7 @@ import ShoppingCart from "./ShoppingCart";
          props.restoreTodo();
      }
      return (
-         <form onSubmit={()=>handleSubmitSearch(e)}>
+         <form onSubmit={handleSubmitSearch}>
              <div className="row">
                  <div className="form-group col-md-8">
                      <input ref={searchRef} type="text" className="form-control form-control-lg border-primary"
