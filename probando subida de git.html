@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+const updateObject = (oldObjects, updateProperties) => {
+return {
+...oldObjects,
+...updateProperties
+}
+}
 
+const addTodoForm = (todo) => {
+let updatedTodos = [...todos];
+let updatedTodo = updatedTodos.find(x => x.id === todo.id);
+updatedTodo = {...updatedTodo, title: todo.title, price: todo.price,
+description: todo.description};
+const updated = [...updatedTodos, updatedTodo];
+setTodos(updated);
+};
 </body>
 </html>

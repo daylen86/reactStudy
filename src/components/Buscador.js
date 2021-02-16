@@ -1,13 +1,7 @@
-import React, {Component, useState} from "react";
-import Navigation from "./Navigation";
-import TodoForm from "./TodoForm";
-import ProductList from "./ProductList";
-import ShoppingCart from "./ShoppingCart";
-
+import React, {useState} from "react";
 
  const Buscador =(props)=>{
     const searchRef = React.createRef();
-
     const handleSubmitSearch =(e)=>{
          e.preventDefault();
          const termino = searchRef.current.value;

@@ -20,13 +20,15 @@ const listCar = (props) => {
         <table className="table">
           <tr className="bg-danger">
             <th>Producto</th>
+            <th>Cantidad</th>
             <th>Precio</th>
           </tr>
           {props.cart &&
             props.cart.map((item) => (
               <tr>
                 <td>{item.title}</td>
-                <td>{item.price}</td>
+                <td></td>
+                <td>{item.price}c/u</td>
               </tr>
             ))}
         </table>

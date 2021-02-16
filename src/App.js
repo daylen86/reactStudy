@@ -54,7 +54,6 @@ const AppFunctional = (props) => {
                         <TodoForm onAddTodo={addTodoForm}/>
                     </div>
                     <div className="col-md-9">
-                        <div className="row">
                             {function () {
                                 if (isFiltered)
                                     return (
@@ -65,7 +64,7 @@ const AppFunctional = (props) => {
                                         <ProductList listProducts={todos} addToCart={addToCart}/>
                                     )
                             }()}
-                        </div>
+
                     </div>
                 </div>
                 <div className="row pt-5">
