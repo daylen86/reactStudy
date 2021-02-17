@@ -6,6 +6,7 @@ import TodoForm from './components/TodoForm.js';
 import Buscador from './components/Buscador';
 import ShoppingCart from './components/ShoppingCart';
 import ProductList from './components/ProductList';
+import Probando from "./components/ProbandoComponent";
 
 const AppFunctional = (props) => {
     const [cart, setCart] = useState([]);
@@ -76,6 +77,7 @@ const AppFunctional = (props) => {
                         <br/>
                     </div>
                 </div>
+                <Probando />
             </div>
         </div>
     )
