@@ -12,7 +12,7 @@ const listCar = (props) => {
     }
     const MostrarCantPorProducto =(index) => {
         let total = 0;
-        const cantidadPorProductos = props.listProducts.reduce(function (total, itemId) {
+        const cantidadPorProductos = props.cart.reduce(function (total, itemId) {
             return itemId === index ? total += 1 : total;
         }, 0)
     }
