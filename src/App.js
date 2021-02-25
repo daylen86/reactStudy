@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
+import {menuList as initialStatee} from './menu.json';
 import {todos as initialState} from './todos.json';
 import TodoForm from './components/TodoForm.js';
 import Buscador from './components/Buscador';
@@ -8,7 +9,10 @@ import ShoppingCart from './components/ShoppingCart';
 import ProductList from './components/ProductList';
 import Probando from "./components/ProbandoComponent";
 
+
+
 const AppFunctional = (props) => {
+    const[menuList, setMenuList] = useState([...initialStatee]);
     const [cart, setCart] = useState([]);
     const [todos, setTodos] = useState([...initialState]);
 
@@ -24,8 +28,8 @@ const AppFunctional = (props) => {
     }
 
     const dataSearch = (termino) => {
-        const filtrados = todos.filter((todo) =>
-            todo.title.trim().toLowerCase().includes(termino.toLowerCase().trim())
+        const filtrados = todos.filter(item =>
+            item.title.trim().toLowerCase().includes(termino.toLowerCase().trim())
         );
         SetTodosFiltered(filtrados);
         setIsFiltered(true);
@@ -36,10 +40,12 @@ const AppFunctional = (props) => {
         SetTodosFiltered([]);
     };
 
-
     return (
         <div className="App">
-            <Navigation total={todos.length}/>
+            <div className="container">
+                <Navigation menuList={menuList} total={todos.length}/>
+            </div>
+            {/*<Navigation total={todos.length}/>*/}
             <div className="container mt-3 p-0">
                 <div className="jumbotron bg-light p-4">
                     <h3>Buscador</h3>
@@ -73,7 +79,9 @@ const AppFunctional = (props) => {
                         <h4 className="bg-white" id="shopCar">
                             Listado carro de compra
                         </h4>
-                        <ShoppingCart cart={cart}/>
+                        <ShoppingCart cart={cart} />
+
+                        {/*<ShoppingCart cart={cart} productsItem={todos}/>*/}
                         <br/>
                     </div>
                 </div>

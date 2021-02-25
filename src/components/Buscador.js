@@ -6,7 +6,6 @@ import React, {useState} from "react";
          e.preventDefault();
          const termino = searchRef.current.value;
          props.dataSearch(termino);
-
      }
      const restore = ()=>{
          props.restoreTodo();
@@ -15,7 +14,7 @@ import React, {useState} from "react";
          <form onSubmit={handleSubmitSearch}>
              <div className="row">
                  <div className="form-group col-md-8">
-                     <input ref={searchRef} type="text" className="form-control form-control-lg border-primary"
+                     <input ref={searchRef} name="buscar" type="text" className="form-control form-control-lg border-primary"
                             placeholder="busca el producto..."/>
                  </div>
                  <div className="form-group col-md-2">

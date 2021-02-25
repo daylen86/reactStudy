@@ -1,6 +1,6 @@
 import React from "react";
 
-const productList = (props)=>{
+const productList = (props) => {
     const addShopCart = (index) => {
         const item = props.listProducts.find((todo, i) => i === index);
         props.addToCart(item);
@@ -8,7 +8,7 @@ const productList = (props)=>{
 
     return (
         <div className="row">
-            {props.listProducts.map((todo, i)=>{
+            {props.listProducts.map((todo, i) => {
                 return (
                     <div className="col-md-4 mt-3" key={i}>
                         <div className="card">
@@ -25,7 +25,7 @@ const productList = (props)=>{
                                 {/*<button className="bg-danger" onClick={this.deleteTask.bind(this, i)}>
                 Delete
               </button>*/}
-                                <button onClick={()=> addShopCart(i)} className="bg-success btn-sm">
+                                <button onClick={() => addShopCart(i)} className="bg-success btn-sm">
                                     Pagar
                                 </button>
                                 <button className="bg-success btn-sm">Carro compra</button>

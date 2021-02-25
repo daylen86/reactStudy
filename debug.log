@@ -13,3 +13,5 @@
 [0211/213158.709:ERROR:process_info.cc(359)] UncheckedAllocate
 [0211/213823.414:ERROR:process_info.cc(359)] UncheckedAllocate
 [0211/213827.368:ERROR:process_info.cc(359)] UncheckedAllocate
+[0223/221049.161:ERROR:process_info.cc(359)] UncheckedAllocate
+[0224/003847.676:ERROR:process_info.cc(359)] UncheckedAllocate

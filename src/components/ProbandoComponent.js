@@ -16,6 +16,7 @@ function Probando() {
         e.preventDefault()
     }
     const Search = ({query}) => <li>{query}</li>
+
     return (
         <div className="">
             <form onSubmit={submitHandler}>
