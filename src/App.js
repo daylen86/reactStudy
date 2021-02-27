@@ -10,7 +10,6 @@ import ProductList from './components/ProductList';
 import Probando from "./components/ProbandoComponent";
 
 
-
 const AppFunctional = (props) => {
     const[menuList, setMenuList] = useState([...initialStatee]);
     const [cart, setCart] = useState([]);
@@ -23,8 +22,20 @@ const AppFunctional = (props) => {
         setTodos([...todos, todo])
     };
 
-    const addToCart = (item) => {
-        setCart([...cart, item]);
+    const addToCart = (product) => {
+      let added = false; //para saber si está agregado ya
+      for (let p of cart) { //un ciclo para recorrer el carrito
+        if (p.id === product.id) { //ver si el producto ya está dentro
+          p.qty += 1; //si está le adiciono uno a su cantidad
+          added = true; //y pongo la bandera booleana para que no se agregue más
+          break; //rompo el ciclo para seguir
+        }
+      }
+      if (!added) { //si no está la bandera en true, entonces es que no existe ese producto en el carrito
+        product.qty = 1; //le pongo cantidad 1
+        cart.push(product); //y lo agrego por primera vez
+      }
+      setCart([...cart]); // al final actualizo el carrito con todo lo que quedó finalmente
     }
 
     const dataSearch = (termino) => {

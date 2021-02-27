@@ -6,27 +6,36 @@ const listCar = (props) => {
     const cantidadTotal = () => {
         props.cart &&
         props.cart.map((item) => {
-            cantidad += parseFloat(item.price);
+            //Aquí se modifica el total multiplicando el precio * la cantidad de cada producto
+            cantidad += parseFloat(item.price * item.qty);
         })
         return cantidad;
     }
-    const MostrarCantPorProducto =(index) => {
-        let total = 0;
-        const cantidadPorProductos = props.cart.reduce(function (total, itemId) {
-            return itemId === index ? total += 1 : total;
-        }, 0)
-    }
+
     return (
-        <div className="row bg-dark ">
-                {props.cart.map((item, i) => {
+        <div className="row">
+          <table className="table">
+            <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+                {props.cart && props.cart.map((item, i) => {
                     return (
-                        <div className="col-12" key={i}>
-                            <div className="col-4">{props.title}</div>
-                            <div className="col-4">{MostrarCantPorProducto()}</div>
-                            <div className="col-4">{props.price}</div>
-                        </div>
+                        <tr key={i}>
+                            <td>{item.title}</td>
+                            <td>{item.price}</td>
+                            <td>{item.qty}</td>
+                            <td>{item.price * item.qty}</td>
+                        </tr>
                     );
                 })}
+                </tbody>
+                </table>
 
             <div className="col-12 mt-3">
                 <h4 className="text-white">Total productos: <span className="badge">{cantidadTotal()}</span></h4>

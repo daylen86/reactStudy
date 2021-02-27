@@ -4,7 +4,8 @@ const TodoForm = (props)=>{
     const [todoForm, setTodoForm] = useState({
         title: '',
         price: '',
-        description: ''
+        description: '',
+        qty:''
     });
     const handleSubmit =(e)=>{
         e.preventDefault();
