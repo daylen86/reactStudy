@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
 import ProductList from './ProductList';
 
 const listCar = (props) => {
@@ -12,15 +12,19 @@ const listCar = (props) => {
         return cantidad;
     }
 
+    const deleted = () =>{
+        props.deleteProduct();
+    }
     return (
         <div className="row">
           <table className="table">
-            <thead>
+            <thead className="bg-success">
             <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
               <th>Total</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +35,7 @@ const listCar = (props) => {
                             <td>{item.price}</td>
                             <td>{item.qty}</td>
                             <td>{item.price * item.qty}</td>
+                            <td><button onClick={()=>deleted()}>Eliminar</button></td>
                         </tr>
                     );
                 })}

@@ -3,7 +3,7 @@ import React from "react";
 const productList = (props) => {
     const addShopCart = (index) => {
         const item = props.listProducts.find((todo, i) => i === index);
-        props.addToCart(item);
+         props.addToCart(item);
     };
 
     return (
@@ -26,9 +26,8 @@ const productList = (props) => {
                 Delete
               </button>*/}
                                 <button onClick={() => addShopCart(i)} className="bg-success btn-sm">
-                                    Pagar
+                                    Comprar
                                 </button>
-                                <button className="bg-success btn-sm">Carro compra</button>
                             </div>
                         </div>
                     </div>

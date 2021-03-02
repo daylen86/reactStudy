@@ -7,8 +7,6 @@ import TodoForm from './components/TodoForm.js';
 import Buscador from './components/Buscador';
 import ShoppingCart from './components/ShoppingCart';
 import ProductList from './components/ProductList';
-import Probando from "./components/ProbandoComponent";
-
 
 const AppFunctional = (props) => {
     const[menuList, setMenuList] = useState([...initialStatee]);
@@ -50,6 +48,14 @@ const AppFunctional = (props) => {
         setIsFiltered(false);
         SetTodosFiltered([]);
     };
+    const deleteProduct =(index)=>{
+        const deleteItem = cart.filter((index, i)=> i !==index);
+        debugger
+        setCart([]);
+
+
+    }
+
 
     return (
         <div className="App">
@@ -87,16 +93,16 @@ const AppFunctional = (props) => {
                 </div>
                 <div className="row pt-5">
                     <div className="col-12">
-                        <h4 className="bg-white" id="shopCar">
-                            Listado carro de compra
+                        <h4 id="shopCar">
+                            Carro de compra
                         </h4>
-                        <ShoppingCart cart={cart} />
+                        <ShoppingCart cart={cart} deleteProduct={deleteProduct} />
 
                         {/*<ShoppingCart cart={cart} productsItem={todos}/>*/}
                         <br/>
                     </div>
                 </div>
-                <Probando />
+
             </div>
         </div>
     )
