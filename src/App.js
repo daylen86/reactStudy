@@ -48,12 +48,11 @@ const AppFunctional = (props) => {
         setIsFiltered(false);
         SetTodosFiltered([]);
     };
-    const deleteProduct =(index)=>{
-        const deleteItem = cart.filter((index, i)=> i !==index);
-        debugger
-        setCart([]);
-
-
+    const deleteProduct =(idProducto)=>{
+       //recibe el idProducto y con eso filtra
+        const cleanItems = cart.filter((product)=> product.id !==idProducto);
+       //actualizo el carrito ya con la lista sin ese que se quiere quitar
+        setCart([...cleanItems]);
     }
 
 

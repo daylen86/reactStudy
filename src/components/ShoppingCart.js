@@ -12,8 +12,9 @@ const listCar = (props) => {
         return cantidad;
     }
 
-    const deleted = () =>{
-        props.deleteProduct();
+    const deleted = (idProduct) =>{
+        //se le pasa el id (ya los items tienen un campito id)
+        props.deleteProduct(idProduct);
     }
     return (
         <div className="row">
@@ -35,7 +36,7 @@ const listCar = (props) => {
                             <td>{item.price}</td>
                             <td>{item.qty}</td>
                             <td>{item.price * item.qty}</td>
-                            <td><button onClick={()=>deleted()}>Eliminar</button></td>
+                            <td><button onClick={()=>deleted(item.id)}>Eliminar</button></td>
                         </tr>
                     );
                 })}
